@@ -1,0 +1,1046 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: #080909;
+    color: #d5d5d5;
+    font-family: "IBM Plex Mono", monospace;
+    overflow: hidden;
+}
+
+/* =========================
+   EFEITOS DO MONITOR
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 35%,
+            rgba(0, 0, 0, .75) 100%
+        );
+    box-shadow: inset 0 0 120px rgba(0, 0, 0, .95);
+}
+
+.ruido {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .055;
+    z-index: 60;
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    animation: ruido .15s infinite;
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 59;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.018) 0,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+/* =========================
+   BARRA
+========================= */
+
+.barra-sistema {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 34px;
+    z-index: 40;
+
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    padding: 0 18px;
+
+    border-bottom: 1px solid #252525;
+    background: #0b0c0c;
+
+    color: #737373;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.sistema-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ponto-verde {
+    width: 6px;
+    height: 6px;
+    background: #6c9f6c;
+    border-radius: 50%;
+    box-shadow: 0 0 7px #6c9f6c;
+}
+
+.sistema-centro {
+    color: #555;
+}
+
+.sistema-direita {
+    text-align: right;
+}
+
+/* =========================
+   CENAS
+   AQUI ESTÁ A CORREÇÃO
+========================= */
+
+.cena {
+    position: absolute;
+    inset: 34px 0 0;
+
+    width: 100%;
+    height: calc(100vh - 34px);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 25px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.cena.ativa {
+    display: flex;
+    animation: aparecerCena .5s ease forwards;
+}
+
+/* =========================
+   TEXTO
+========================= */
+
+h1 {
+    font-family: "Share Tech Mono", monospace;
+    font-size: clamp(30px, 5vw, 68px);
+    font-weight: 400;
+    line-height: .95;
+    color: #e8e8e8;
+    text-transform: uppercase;
+}
+
+p {
+    line-height: 1.7;
+}
+
+.codigo {
+    color: #6d6d6d;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.texto-secundario {
+    color: #777;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.texto-vermelho {
+    color: #b73b3b;
+}
+
+.texto-pequeno {
+    color: #666;
+    font-size: 11px;
+    margin-top: 20px;
+}
+
+.texto-grande {
+    font-size: clamp(20px, 3vw, 34px);
+    line-height: 1.25;
+    margin: 25px 0;
+}
+
+.destaque-branco {
+    color: #fff;
+    font-size: 18px;
+    margin-top: 25px;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.botao-principal,
+.botao-terminal {
+    margin-top: 28px;
+    padding: 13px 20px;
+
+    border: 1px solid #6c2929;
+    background: #110b0b;
+    color: #c94b4b;
+
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+
+    transition: .2s;
+}
+
+.botao-principal:hover,
+.botao-terminal:hover {
+    background: #8c2e2e;
+    color: #fff;
+    border-color: #b94b4b;
+    transform: translateY(-2px);
+}
+
+.botao-terminal {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+/* =========================
+   TERMINAL
+========================= */
+
+.terminal {
+    width: min(850px, 100%);
+    border: 1px solid #292929;
+    background: #0a0b0b;
+
+    box-shadow:
+        0 0 0 1px #050505,
+        0 20px 70px rgba(0,0,0,.65);
+
+    font-size: 13px;
+}
+
+.terminal.pequeno {
+    width: min(680px, 100%);
+}
+
+.terminal.busca {
+    width: min(780px, 100%);
+}
+
+.terminal-topo {
+    height: 35px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 14px;
+
+    border-bottom: 1px solid #292929;
+    background: #101111;
+
+    color: #686868;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.terminal-conteudo {
+    padding: 28px;
+}
+
+.linha-terminal {
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.terminal-vermelho {
+    color: #bd4141;
+}
+
+.terminal-grande {
+    margin-top: 15px;
+
+    font-family: "Share Tech Mono", monospace;
+    font-size: clamp(25px, 4vw, 48px);
+    line-height: 1;
+
+    color: #e5e5e5;
+}
+
+.terminal-divisoria {
+    height: 1px;
+    margin: 25px 0;
+    background: #282828;
+}
+
+.espaco-terminal {
+    height: 25px;
+}
+
+.texto-digitado {
+    min-height: 180px;
+    white-space: pre-line;
+    color: #9a9a9a;
+    line-height: 1.8;
+}
+
+.alerta-terminal {
+    color: #a33d3d;
+}
+
+/* =========================
+   PAINEL
+========================= */
+
+.painel-central {
+    width: min(780px, 100%);
+    position: relative;
+
+    padding: 40px;
+
+    border-left: 1px solid #272727;
+    border-right: 1px solid #272727;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.015),
+            transparent
+        );
+}
+
+.linha-vermelha {
+    width: 80px;
+    height: 2px;
+    margin: 20px 0;
+    background: #8d2f2f;
+}
+
+.carimbo {
+    display: inline-block;
+
+    margin-bottom: 25px;
+    padding: 6px 10px;
+
+    border: 2px solid #8d3030;
+    color: #9f3c3c;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    transform: rotate(-2deg);
+}
+
+.carimbo.vermelho {
+    color: #cf4a4a;
+    border-color: #a63a3a;
+}
+
+.carimbo-pequeno {
+    display: inline-block;
+
+    margin: 15px 0;
+    padding: 5px 8px;
+
+    border: 1px solid #633030;
+    color: #9d4646;
+
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.pergunta {
+    margin-top: 30px;
+    color: #666;
+    font-size: 12px;
+}
+
+/* =========================
+   ARQUIVO
+========================= */
+
+.arquivo-investigacao {
+    width: min(900px, 100%);
+    background: #111;
+    border: 1px solid #292929;
+
+    box-shadow: 15px 15px 0 rgba(0,0,0,.25);
+}
+
+.arquivo-topo {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    border-bottom: 1px solid #292929;
+
+    color: #686868;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.arquivo-corpo {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    min-height: 470px;
+}
+
+.arquivo-lateral {
+    border-right: 1px solid #292929;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.arquivo-lateral span {
+    color: #733333;
+    font-size: 9px;
+    letter-spacing: 2px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.vermelho-lateral span {
+    color: #a13d3d;
+}
+
+.arquivo-conteudo {
+    padding: 45px;
+}
+
+.arquivo-conteudo h1 {
+    margin-top: 10px;
+}
+
+.arquivo-conteudo p {
+    max-width: 650px;
+    margin-top: 15px;
+    color: #a2a2a2;
+    font-size: 13px;
+}
+
+.nota-arquivo {
+    margin-top: 25px;
+    padding: 12px;
+
+    border-left: 2px solid #7c3030;
+    background: #151010;
+
+    color: #777;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.nota-arquivo.grande {
+    max-width: 500px;
+    margin-top: 25px;
+    color: #a3a3a3;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   PESSOAS
+========================= */
+
+.lista-pessoas {
+    margin-top: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.pessoa {
+    min-height: 120px;
+    padding: 15px;
+
+    border: 1px solid #292929;
+    background: #0c0d0d;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pessoa span {
+    color: #555;
+    font-size: 10px;
+}
+
+.pessoa strong {
+    color: #ddd;
+    font-size: 13px;
+}
+
+.pessoa small {
+    color: #843838;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   EVENTO
+========================= */
+
+.tela-evento {
+    width: min(900px, 100%);
+    text-align: center;
+}
+
+.texto-gigante {
+    margin-top: 30px;
+
+    font-family: "Share Tech Mono", monospace;
+    font-size: clamp(50px, 10vw, 130px);
+    line-height: .85;
+
+    color: #dedede;
+}
+
+.texto-gigante.vermelho {
+    margin-top: 12px;
+    color: #963838;
+}
+
+.linha-pulsante {
+    width: 100%;
+    height: 1px;
+
+    margin: 40px auto;
+
+    background: #722929;
+    animation: pulsar 1.5s infinite;
+}
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+.descricao-pessoa {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 30px;
+    margin-top: 25px;
+}
+
+.descricao-pessoa p {
+    margin-top: 0;
+    color: #888;
+    font-size: 12px;
+}
+
+/* =========================
+   BUSCA
+========================= */
+
+.barra-progresso {
+    width: 100%;
+    height: 4px;
+
+    margin-top: 25px;
+
+    background: #1d1d1d;
+    overflow: hidden;
+}
+
+.barra-progresso div {
+    width: 0;
+    height: 100%;
+    background: #9d3737;
+    transition: width .4s ease;
+}
+
+.resultado-busca {
+    display: none;
+    margin-top: 35px;
+}
+
+.resultado-busca > p {
+    color: #a94040;
+    font-size: 12px;
+}
+
+.identidade-encontrada {
+    margin-top: 20px;
+    padding: 25px;
+
+    border: 1px solid #352323;
+    background: #100b0b;
+}
+
+.identidade-encontrada span,
+.identidade-encontrada small {
+    display: block;
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.identidade-encontrada strong {
+    display: block;
+
+    margin: 12px 0;
+
+    font-family: "Share Tech Mono", monospace;
+    font-size: clamp(28px, 5vw, 55px);
+
+    color: #ddd;
+}
+
+/* =========================
+   ALERTA
+========================= */
+
+.alerta-grande {
+    margin-top: 30px;
+    padding: 15px;
+
+    border: 1px solid #6e2929;
+    background: #160b0b;
+
+    color: #b74444;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   MENSAGENS
+========================= */
+
+.mensagem-fake {
+    margin: 25px 0;
+    padding: 15px;
+
+    border-left: 2px solid #565656;
+    background: #111;
+
+    color: #888;
+}
+
+.mensagem-fake span {
+    color: #555;
+    font-size: 9px;
+}
+
+.mensagem-fake p {
+    margin-top: 8px;
+}
+
+.historico {
+    margin: 25px 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.historico div {
+    padding: 12px;
+    border: 1px solid #252525;
+    color: #777;
+    font-size: 11px;
+}
+
+.historico span {
+    color: #9d3d3d;
+    margin-right: 8px;
+}
+
+/* =========================
+   SENHA
+========================= */
+
+.dica {
+    margin-top: 12px;
+    color: #666;
+    font-size: 10px;
+}
+
+.campo-senha {
+    width: 100%;
+
+    margin-top: 25px;
+    padding: 15px;
+
+    border: 1px solid #333;
+    outline: none;
+
+    background: #050606;
+    color: #ddd;
+
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.campo-senha:focus {
+    border-color: #873333;
+    box-shadow: 0 0 15px rgba(120,40,40,.15);
+}
+
+.mensagem-sistema {
+    min-height: 18px;
+    margin-top: 15px;
+    color: #8f3939;
+    font-size: 10px;
+}
+
+/* =========================
+   DATA
+========================= */
+
+.data-grande {
+    margin: 25px 0;
+
+    font-family: "Share Tech Mono", monospace;
+    font-size: 80px;
+    line-height: .75;
+
+    color: #d7d7d7;
+}
+
+.data-grande span {
+    display: block;
+    margin-top: 12px;
+    font-size: 15px;
+    color: #7d7d7d;
+    letter-spacing: 5px;
+}
+
+/* =========================
+   CARTA
+========================= */
+
+.documento-carta {
+    width: min(760px, 100%);
+    max-height: calc(100vh - 80px);
+
+    overflow-y: auto;
+
+    padding: 30px 35px;
+
+    background: #d7d2c5;
+    color: #242424;
+
+    box-shadow: 0 30px 80px rgba(0,0,0,.6);
+
+    scrollbar-width: thin;
+}
+
+.documento-cabecalho {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #aaa;
+
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.documento-aviso {
+    margin: 15px 0;
+    padding: 7px;
+
+    border: 1px solid #8a3030;
+    color: #8a3030;
+
+    font-size: 9px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.carta-conteudo {
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.carta-conteudo p {
+    margin-bottom: 20px;
+}
+
+.assinatura {
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* =========================
+   CONVITE
+========================= */
+
+.convite-caixa {
+    margin-top: 30px;
+    padding: 25px;
+
+    border: 1px solid #303030;
+    background: #0d0e0e;
+}
+
+.convite-caixa small {
+    display: block;
+    color: #666;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.convite-caixa strong {
+    display: block;
+
+    margin: 12px 0;
+
+    font-family: "Share Tech Mono", monospace;
+    font-size: 40px;
+
+    color: #ddd;
+}
+
+.convite-caixa span {
+    color: #8d3b3b;
+    font-size: 11px;
+}
+
+.convite-caixa p {
+    margin-top: 18px;
+    color: #aaa;
+}
+
+.botoes-convite {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.botao-sim,
+.botao-nao {
+    padding: 12px 25px;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.botao-sim {
+    border: 1px solid #7e3030;
+    background: #712b2b;
+    color: white;
+}
+
+.botao-nao {
+    border: 1px solid #333;
+    background: transparent;
+    color: #777;
+    position: relative;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    text-align: center;
+}
+
+.terminal-final {
+    width: min(600px, 100%);
+    margin: 30px auto;
+    padding: 25px;
+
+    text-align: left;
+
+    border: 1px solid #272727;
+    background: #090a0a;
+
+    color: #777;
+    line-height: 2;
+}
+
+.final h1 {
+    margin-top: 35px;
+}
+
+.final p {
+    margin-top: 15px;
+    color: #777;
+}
+
+.final-assinatura {
+    margin-top: 35px;
+    color: #9d3b3b;
+    font-size: 13px;
+}
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes aparecerCena {
+    from {
+        opacity: 0;
+        transform: scale(.985);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes ruido {
+    0% {
+        transform: translate(0,0);
+    }
+
+    25% {
+        transform: translate(-1%,1%);
+    }
+
+    50% {
+        transform: translate(1%,-1%);
+    }
+
+    75% {
+        transform: translate(1%,1%);
+    }
+
+    100% {
+        transform: translate(0,0);
+    }
+}
+
+@keyframes pulsar {
+    0%,
+    100% {
+        opacity: .3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 650px) {
+
+    .barra-sistema {
+        padding: 0 10px;
+        font-size: 8px;
+    }
+
+    .sistema-centro {
+        display: none;
+    }
+
+    .cena {
+        min-height: 100vh;
+        padding: 65px 18px 40px;
+    }
+
+    .terminal-conteudo {
+        padding: 20px;
+    }
+
+    .painel-central {
+        padding: 25px 20px;
+    }
+
+    .arquivo-corpo {
+        grid-template-columns: 38px 1fr;
+        min-height: auto;
+    }
+
+    .arquivo-conteudo {
+        padding: 25px 20px;
+    }
+
+    .lista-pessoas {
+        grid-template-columns: 1fr;
+    }
+
+    .pessoa {
+        min-height: 80px;
+    }
+
+    .descricao-pessoa {
+        grid-template-columns: 1fr;
+    }
+
+    .historico {
+        grid-template-columns: 1fr;
+    }
+
+    .texto-gigante {
+        font-size: 55px;
+    }
+
+    .documento-carta {
+        max-height: calc(100vh - 80px);
+        padding: 22px;
+    }
+
+    .carta-conteudo {
+        font-size: 15px;
+    }
+
+    .botoes-convite {
+        flex-direction: column;
+    }
+
+    .botao-sim,
+    .botao-nao {
+        width: 100%;
+    }
+}
+
+button,
+input {
+    -webkit-tap-highlight-color: transparent;
+}

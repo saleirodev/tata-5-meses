@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ARQUIVO TG-005</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- RUÍDO DO MONITOR -->
+    <div class="ruido"></div>
+    <div class="scanlines"></div>
+
+    <!-- TOPO DO COMPUTADOR -->
+    <header class="barra-sistema">
+        <div class="sistema-esquerda">
+            <span class="ponto-verde"></span>
+            <span>SISTEMA LOCAL</span>
+        </div>
+
+        <div class="sistema-centro">
+            ARQUIVO_RECUPERADO.exe
+        </div>
+
+        <div class="sistema-direita">
+            <span id="numeroArquivo">ARQ. 001</span>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- ================================================= -->
+        <!-- CENA 1 -->
+        <!-- ================================================= -->
+
+        <section class="cena ativa" id="cena1">
+
+            <div class="terminal abertura">
+
+                <div class="terminal-topo">
+                    <span>TERMINAL DE RECUPERAÇÃO</span>
+                    <span>● REC</span>
+                </div>
+
+                <div class="terminal-conteudo">
+
+                    <p class="linha-terminal">
+                        > inicializando sistema...
+                    </p>
+
+                    <p class="linha-terminal">
+                        > verificando arquivos corrompidos...
+                    </p>
+
+                    <p class="linha-terminal">
+                        > 01 arquivo recuperado.
+                    </p>
+
+                    <p class="linha-terminal alerta-terminal">
+                        > conteúdo classificado.
+                    </p>
+
+                    <div class="espaco-terminal"></div>
+
+                    <p class="terminal-vermelho">
+                        ARQUIVO: TG-005
+                    </p>
+
+                    <p class="terminal-grande">
+                        HISTÓRIA DE UMA CERTA TAMYRIS
+                    </p>
+
+                    <div class="terminal-divisoria"></div>
+
+                    <p id="textoInicial" class="texto-digitado"></p>
+
+                    <button
+                        class="botao-terminal"
+                        onclick="irPara(2)"
+                    >
+                        [ INICIAR RECUPERAÇÃO ]
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 2 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena2">
+
+            <div class="painel-central">
+
+                <div class="carimbo">
+                    ACESSO
+                    <br>
+                    AUTORIZADO
+                </div>
+
+                <p class="codigo">TG-005 / 2026</p>
+
+                <h1>
+                    arquivo encontrado.
+                </h1>
+
+                <p class="texto-secundario">
+                    Existem registros antigos neste computador.
+                </p>
+
+                <p class="texto-secundario">
+                    Alguns foram apagados.
+                </p>
+
+                <p class="texto-secundario">
+                    Outros foram escondidos.
+                </p>
+
+                <div class="linha-vermelha"></div>
+
+                <p class="pergunta">
+                    Antes de continuar, precisamos confirmar uma coisa.
+                </p>
+
+                <p class="destaque-branco">
+                    você realmente é a pessoa deste arquivo?
+                </p>
+
+                <button
+                    class="botao-principal"
+                    onclick="irPara(3)"
+                >
+                    CONTINUAR
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 3 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena3">
+
+            <div class="terminal pequeno">
+
+                <div class="terminal-topo">
+                    <span>VERIFICAÇÃO DE IDENTIDADE</span>
+                    <span>SEC-01</span>
+                </div>
+
+                <div class="terminal-conteudo">
+
+                    <p class="linha-terminal">
+                        > identidade não confirmada.
+                    </p>
+
+                    <p class="linha-terminal">
+                        > sistema exige autenticação manual.
+                    </p>
+
+                    <div class="espaco-terminal"></div>
+
+                    <p class="terminal-vermelho">
+                        QUAL É A SENHA?
+                    </p>
+
+                    <p class="dica">
+                        dica: nome do nosso hamster
+                    </p>
+
+                    <input
+                        type="text"
+                        id="senha"
+                        class="campo-senha"
+                        placeholder="digite a senha..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        class="botao-terminal"
+                        onclick="verificarSenha()"
+                    >
+                        [ AUTENTICAR ]
+                    </button>
+
+                    <p
+                        id="mensagemSenha"
+                        class="mensagem-sistema"
+                    ></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 4 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena4">
+
+            <div class="arquivo-investigacao">
+
+                <div class="arquivo-topo">
+                    <span>REGISTRO 01</span>
+                    <span>JANEIRO / 2025</span>
+                </div>
+
+                <div class="arquivo-corpo">
+
+                    <div class="arquivo-lateral">
+                        <span>CONFIDENCIAL</span>
+                    </div>
+
+                    <div class="arquivo-conteudo">
+
+                        <p class="codigo">LOCALIZAÇÃO: MADUREIRA — RJ</p>
+
+                        <h1>
+                            O INÍCIO
+                        </h1>
+
+                        <div class="linha-vermelha"></div>
+
+                        <p>
+                            Janeiro de 2025.
+                        </p>
+
+                        <p>
+                            João foi obrigado pelos pais a comparecer
+                            a um evento chamado <strong>Conjaderj</strong>.
+                        </p>
+
+                        <p>
+                            Ele não queria ir.
+                        </p>
+
+                        <p class="texto-vermelho">
+                            queria ficar em casa.
+                        </p>
+
+                        <div class="nota-arquivo">
+                            REGISTRO:
+                            <br>
+                            "foi contrariado."
+                        </div>
+
+                        <button
+                            class="botao-principal"
+                            onclick="irPara(5)"
+                        >
+                            AVANÇAR →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 5 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena5">
+
+            <div class="painel-central">
+
+                <p class="codigo">
+                    REGISTRO 02 / ENVOLVIDOS
+                </p>
+
+                <h1>
+                    03 AMIGOS
+                </h1>
+
+                <div class="lista-pessoas">
+
+                    <div class="pessoa">
+                        <span>01</span>
+                        <strong>JOÃO GABRIEL</strong>
+                        <small>SOLTEIRO</small>
+                    </div>
+
+                    <div class="pessoa">
+                        <span>02</span>
+                        <strong>AMIGO</strong>
+                        <small>SOLTEIRO</small>
+                    </div>
+
+                    <div class="pessoa">
+                        <span>03</span>
+                        <strong>AMIGO</strong>
+                        <small>SOLTEIRO</small>
+                    </div>
+
+                </div>
+
+                <div class="nota-arquivo grande">
+
+                    DURANTE O EVENTO,
+                    OS ENVOLVIDOS PASSARAM
+                    ALGUM TEMPO OBSERVANDO
+                    MULHERES.
+
+                </div>
+
+                <p class="texto-pequeno">
+                    observação posterior:
+                    João afirma que não faz mais isso.
+                </p>
+
+                <button
+                    class="botao-principal"
+                    onclick="irPara(6)"
+                >
+                    CONTINUAR INVESTIGAÇÃO
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 6 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena6">
+
+            <div class="tela-evento">
+
+                <p class="codigo">
+                    REGISTRO 03
+                </p>
+
+                <div class="texto-gigante">
+                    E ENTÃO...
+                </div>
+
+                <div
+                    class="texto-gigante vermelho"
+                    id="aparecerPessoa"
+                >
+                    ALGO ACONTECEU.
+                </div>
+
+                <div class="linha-pulsante"></div>
+
+                <p class="texto-secundario">
+                    um novo registro foi encontrado.
+                </p>
+
+                <button
+                    class="botao-principal"
+                    onclick="irPara(7)"
+                >
+                    ABRIR REGISTRO
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 7 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena7">
+
+            <div class="arquivo-investigacao">
+
+                <div class="arquivo-topo">
+                    <span>REGISTRO VISUAL</span>
+                    <span>SEM IMAGEM</span>
+                </div>
+
+                <div class="arquivo-corpo">
+
+                    <div class="arquivo-lateral vermelho-lateral">
+                        <span>OBSERVADA</span>
+                    </div>
+
+                    <div class="arquivo-conteudo">
+
+                        <p class="codigo">
+                            DESCRIÇÃO RECUPERADA
+                        </p>
+
+                        <h1>
+                            UMA MULHER
+                        </h1>
+
+                        <div class="linha-vermelha"></div>
+
+                        <div class="descricao-pessoa">
+
+                            <p>
+                                altura mediana.
+                            </p>
+
+                            <p>
+                                cabelos castanhos.
+                            </p>
+
+                            <p>
+                                olhos castanhos.
+                            </p>
+
+                            <p>
+                                pele clara.
+                            </p>
+
+                            <p>
+                                um pequeno sorriso.
+                            </p>
+
+                        </div>
+
+                        <p class="texto-vermelho">
+                            algo nela chamou atenção.
+                        </p>
+
+                        <p>
+                            Ela passou como um vulto.
+                        </p>
+
+                        <p>
+                            João acompanhou cada passo com os olhos.
+                        </p>
+
+                        <button
+                            class="botao-principal"
+                            onclick="irPara(8)"
+                        >
+                            PROCURAR IDENTIDADE
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 8 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena8">
+
+            <div class="terminal busca">
+
+                <div class="terminal-topo">
+                    <span>BANCO DE DADOS</span>
+                    <span>BUSCA.EXE</span>
+                </div>
+
+                <div class="terminal-conteudo">
+
+                    <p class="linha-terminal">
+                        > iniciando pesquisa...
+                    </p>
+
+                    <p
+                        id="textoBusca"
+                        class="linha-terminal terminal-vermelho"
+                    >
+                        > procurando registros...
+                    </p>
+
+                    <div class="barra-progresso">
+                        <div id="progressoBusca"></div>
+                    </div>
+
+                    <div
+                        id="resultadoBusca"
+                        class="resultado-busca"
+                    >
+
+                        <p>
+                            CORRESPONDÊNCIA ENCONTRADA.
+                        </p>
+
+                        <div class="identidade-encontrada">
+
+                            <span>IDENTIDADE</span>
+
+                            <strong>
+                                TAMYRIS GAMA
+                            </strong>
+
+                            <small>
+                                REGISTRO LOCALIZADO
+                            </small>
+
+                        </div>
+
+                        <button
+                            class="botao-terminal"
+                            onclick="irPara(9)"
+                        >
+                            [ ABRIR REGISTRO ]
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 9 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena9">
+
+            <div class="painel-central">
+
+                <p class="codigo">
+                    REGISTRO 05
+                </p>
+
+                <h1>
+                    O PRIMEIRO CONTATO
+                </h1>
+
+                <div class="linha-vermelha"></div>
+
+                <p>
+                    João encontrou a identidade.
+                </p>
+
+                <p>
+                    Pediu para seguir.
+                </p>
+
+                <p>
+                    Ela aceitou.
+                </p>
+
+                <p>
+                    E seguiu de volta.
+                </p>
+
+                <div class="alerta-grande">
+                    MAS ELE NÃO FALOU NADA.
+                </div>
+
+                <p class="texto-pequeno">
+                    segundo os registros:
+                    timidez severa.
+                </p>
+
+                <button
+                    class="botao-principal"
+                    onclick="irPara(10)"
+                >
+                    VER PRÓXIMO REGISTRO
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 10 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena10">
+
+            <div class="terminal pequeno">
+
+                <div class="terminal-topo">
+                    <span>HISTÓRICO DE MENSAGENS</span>
+                    <span>2015?</span>
+                </div>
+
+                <div class="terminal-conteudo">
+
+                    <p class="linha-terminal">
+                        > primeira tentativa de contato encontrada.
+                    </p>
+
+                    <div class="mensagem-fake">
+
+                        <span>JOÃO</span>
+
+                        <p>
+                            Feliz aniversário :)
+                        </p>
+
+                    </div>
+
+                    <p class="linha-terminal">
+                        > conversa encerrada.
+                    </p>
+
+                    <div class="espaco-terminal"></div>
+
+                    <p class="linha-terminal terminal-vermelho">
+                        > quase um ano depois...
+                    </p>
+
+                    <p>
+                        uma nova mensagem foi enviada.
+                    </p>
+
+                    <p>
+                        dessa vez, algo mudou.
+                    </p>
+
+                    <button
+                        class="botao-terminal"
+                        onclick="irPara(11)"
+                    >
+                        [ CONTINUAR ]
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 11 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena11">
+
+            <div class="painel-central">
+
+                <p class="codigo">
+                    REGISTRO 06 / ALTERAÇÃO DE STATUS
+                </p>
+
+                <h1>
+                    ACESSO CONCEDIDO
+                </h1>
+
+                <div class="linha-vermelha"></div>
+
+                <p class="texto-grande">
+                    TAMYRIS ADICIONOU
+                    JOÃO AOS MELHORES AMIGOS.
+                </p>
+
+                <div class="carimbo-pequeno">
+                    EVENTO IMPORTANTE
+                </div>
+
+                <p>
+                    A partir daí, eles começaram a conversar.
+                </p>
+
+                <p>
+                    O jeito dela de falar chamou atenção.
+                </p>
+
+                <p>
+                    Ela era doce.
+                    Engraçada.
+                    E conseguiu tocar o coração dele.
+                </p>
+
+                <button
+                    class="botao-principal"
+                    onclick="irPara(12)"
+                >
+                    ABRIR PRÓXIMO ARQUIVO
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 12 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena12">
+
+            <div class="arquivo-investigacao">
+
+                <div class="arquivo-topo">
+                    <span>REGISTRO 07</span>
+                    <span>18 / 04 / 2026</span>
+                </div>
+
+                <div class="arquivo-corpo">
+
+                    <div class="arquivo-lateral">
+                        <span>ENCONTRO</span>
+                    </div>
+
+                    <div class="arquivo-conteudo">
+
+                        <p class="codigo">
+                            LOCAL: ROSAL
+                        </p>
+
+                        <h1>
+                            "VOU PRA ROSAL TE VER."
+                        </h1>
+
+                        <div class="linha-vermelha"></div>
+
+                        <p>
+                            Os dois tinham inseguranças.
+                        </p>
+
+                        <p>
+                            Mesmo assim...
+                        </p>
+
+                        <p class="texto-vermelho">
+                            o que custava?
+                        </p>
+
+                        <div class="data-grande">
+                            18
+                            <span>ABRIL</span>
+                            2026
+                        </div>
+
+                        <p>
+                            Primeiro encontro.
+                        </p>
+
+                        <p>
+                            Nenhum beijo.
+                        </p>
+
+                        <p class="destaque-branco">
+                            Um dia incrível.
+                        </p>
+
+                        <button
+                            class="botao-principal"
+                            onclick="irPara(13)"
+                        >
+                            CONTINUAR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 13 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena13">
+
+            <div class="terminal pequeno">
+
+                <div class="terminal-topo">
+                    <span>ARQUIVO DE RELACIONAMENTO</span>
+                    <span>REGISTROS MÚLTIPLOS</span>
+                </div>
+
+                <div class="terminal-conteudo">
+
+                    <p class="linha-terminal">
+                        > carregando histórico...
+                    </p>
+
+                    <div class="historico">
+
+                        <div>
+                            <span>+</span>
+                            momentos bons
+                        </div>
+
+                        <div>
+                            <span>+</span>
+                            momentos incríveis
+                        </div>
+
+                        <div>
+                            <span>-</span>
+                            momentos ruins
+                        </div>
+
+                        <div>
+                            <span>-</span>
+                            brigas
+                        </div>
+
+                        <div>
+                            <span>!</span>
+                            desavenças
+                        </div>
+
+                        <div>
+                            <span>♥</span>
+                            amor
+                        </div>
+
+                    </div>
+
+                    <div class="alerta-grande">
+                        MAS UMA COISA NUNCA FALTOU.
+                    </div>
+
+                    <p class="texto-grande">
+                        A VONTADE DE PASSAR
+                        O RESTO DA VIDA JUNTOS.
+                    </p>
+
+                    <button
+                        class="botao-terminal"
+                        onclick="irPara(14)"
+                    >
+                        [ RECUPERAR DOCUMENTO FINAL ]
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 14 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena14">
+
+            <div class="documento-carta">
+
+                <div class="documento-cabecalho">
+
+                    <span>
+                        DOCUMENTO RECUPERADO
+                    </span>
+
+                    <span>
+                        TG-005-FINAL
+                    </span>
+
+                </div>
+
+                <div class="documento-aviso">
+                    DOCUMENTO PESSOAL — NÃO ALTERAR
+                </div>
+
+                <div class="carta-conteudo">
+
+                    <p>
+                        Tamyris, sei que não somos perfeitos e que vivemos
+                        magoando um ao outro. Mas eu quero escolher você para sempre.
+                        Sei que é complicada, eu também sou, mas eu não me vejo
+                        com outro alguém; pois é você que faz o meu coração pulsar.
+                    </p>
+
+                    <p>
+                        Hoje, comemoramos 5 meses de relacionamento, e vivemos
+                        momentos bons, ruins, incriveis, pessimos; mas espero que
+                        você siga me escolhendo, eu prometo honrar isso.
+                    </p>
+
+                    <p>
+                        Me perdoa por todas as falhas, eu não queria te machucar.
+                        Mesmo que fosse inevitável.
+                    </p>
+
+                    <p>
+                        Você me faz feliz por ser você, por ser brincalhona,
+                        e mesmo por ser mais na sua, quando demonstra carinho
+                        do seu jeitinho, eu fico todo bobo.
+                    </p>
+
+                    <p>
+                        És muito engraçada, assim como és bela, maravilhosa,
+                        estilosa, cheirosa, jeitosa e ...
+                        <strong>(kkkk deixa, deixa)</strong>
+                    </p>
+
+                    <p>
+                        Obrigado por ter dado uma oportunidade pra mim,
+                        que ainda to construindo muita coisa, eu te amo muito.
+                        Espero que Deus nos abençoe e possa nos unir para sempre.
+                        E que possamos alinhar nossas desavenças e falhas.
+                    </p>
+
+                    <p>
+                        Amo todos seus detalhes fisicos e quem você é,
+                        mas como sempre pontuo os fisicos, hoje quero falar
+                        da mulher incrivel que és.
+                    </p>
+
+                    <p>
+                        Uma boa filha, uma pessoa muito inteligente,
+                        dedicada a Deus e aos seus, alguém que se doa
+                        por aquilo que acredita e que se empenha a cada dia
+                        para ser melhor.
+                    </p>
+
+                    <p>
+                        Suas falhas não te definem, apenas a fazem crescer.
+                        Eu tenho muito orgulho quando te vejo brincando
+                        com a Mavie, espero um dia ser com o meu filho ou filha.
+                    </p>
+
+                    <p>
+                        Espero dormir aos seus lados todos os dias e acordar
+                        com você de boca aberta ... 😂😂
+                    </p>
+
+                    <p>
+                        quero beijar sua boca todos os dias e te abraçar
+                        todos os dias, te pegar pelos braços e brincar
+                        com você, como duas crianças.
+                    </p>
+
+                    <p>
+                        podemos pular na cama também, se quiser.
+                    </p>
+
+                    <p>
+                        podemos jogar videogame juntos também.
+                    </p>
+
+                    <p>
+                        ou brincar de guerrinha de travesseiro.
+                    </p>
+
+                    <p>
+                        ahh, ce que sabe.
+                    </p>
+
+                    <p>
+                        te amo,
+                    </p>
+
+                    <p>
+                        feliz 5 meses.
+                    </p>
+
+                    <p class="assinatura">
+                        de: João.
+                    </p>
+
+                </div>
+
+                <button
+                    class="botao-principal"
+                    onclick="irPara(15)"
+                >
+                    ENCERRAR INVESTIGAÇÃO
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 15 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena15">
+
+            <div class="painel-central convite">
+
+                <div class="carimbo vermelho">
+                    CASO ENCERRADO
+                </div>
+
+                <p class="codigo">
+                    TG-005 / ÚLTIMO REGISTRO
+                </p>
+
+                <h1>
+                    MAS A INVESTIGAÇÃO
+                    AINDA NÃO ACABOU.
+                </h1>
+
+                <div class="linha-vermelha"></div>
+
+                <p class="texto-grande">
+                    EXISTE UMA ÚLTIMA MISSÃO.
+                </p>
+
+                <div class="convite-caixa">
+
+                    <small>
+                        CONVITE OFICIAL
+                    </small>
+
+                    <strong>
+                        ALMOÇO
+                    </strong>
+
+                    <span>
+                        SÁBADO — 03/10/2026
+                    </span>
+
+                    <p>
+                        Você aceita sair comigo?
+                    </p>
+
+                </div>
+
+                <div class="botoes-convite">
+
+                    <button
+                        class="botao-sim"
+                        onclick="aceitarConvite()"
+                    >
+                        SIM ❤️
+                    </button>
+
+                    <button
+                        id="botaoNao"
+                        class="botao-nao"
+                        onclick="recusarConvite()"
+                    >
+                        NÃO
+                    </button>
+
+                </div>
+
+                <p
+                    id="mensagemConvite"
+                    class="mensagem-sistema"
+                ></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================= -->
+        <!-- CENA 16 -->
+        <!-- ================================================= -->
+
+        <section class="cena" id="cena16">
+
+            <div class="final">
+
+                <p class="codigo">
+                    TG-005 / STATUS FINAL
+                </p>
+
+                <div class="terminal-final">
+
+                    <p>
+                        > resposta recebida.
+                    </p>
+
+                    <p>
+                        > convite aceito.
+                    </p>
+
+                    <p>
+                        > preparando encontro...
+                    </p>
+
+                    <p class="terminal-vermelho">
+                        > caso encerrado.
+                    </p>
+
+                </div>
+
+                <h1>
+                    EU TE AMO,
+                    TAMYRIS.
+                </h1>
+
+                <p>
+                    feliz 5 meses.
+                </p>
+
+                <div class="final-assinatura">
+                    — JG
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
